@@ -1,0 +1,26 @@
+{
+    "questions": [
+        {
+            "question": "What is the capital of France?",
+            "answers": [
+                "New York",
+                "London",
+                "Paris",
+                "Dublin"
+            ],
+            "right_answer": "Paris"
+        },
+
+        {
+            "question": "what is 2 + 2?",
+            "answers": [
+                "1",
+                "2",
+                "3",
+                "4"
+            ],
+            "right_answer": "4"
+        }
+
+    ]
+}
