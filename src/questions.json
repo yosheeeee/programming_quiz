@@ -22,5 +22,38 @@
             "right_answer": "4"
         }
 
+    ],
+
+    "cs": [
+        {
+            "question": "Как называется целочисленный тип данных?",
+            "answers": [
+                "number",
+                "int",
+                "float",
+                "string"
+            ],
+            "right_answer": "int"
+        },
+        {
+            "question": "Что делает метод Console.WriteLine",
+            "answers": [
+                "Считывает данные с консоли",
+                "Отчищает консоль",
+                "Выводит данные в консоль",
+                "Закрывает приложение"
+            ],
+            "right_answer": "Выводит данные в консоль"
+        },
+        {
+            "question": "Что из перечисленного является структурой данных?",
+            "answers": [
+                "List",
+                "static",
+                "internal",
+                "namespace"
+            ],
+            "right_answer": "List"
+        }
     ]
 }

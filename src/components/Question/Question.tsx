@@ -1,62 +1,35 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React from 'react'
 import './Question.scss'
 import quest from '../../questions.json'
+import useQuiz from '../../hooks/useQuiz'
+import { Link, useParams } from 'react-router-dom'
 
-interface IQuestion {
+export interface IQuestion {
     question: string,
     answers: [],
     right_answer: string,
 }
 
+interface IParams{
+    theme: string
+}
 
-export function QuizBlock() {
+export function QuizBlock( {questions } :{ questions: any} ) {
 
-    let [isAnswered, setIsAnswered] = useState(false)
-    let [currentQuestionNumber, setQurrentQuestionNumber] = useState(0)
-    let { questions } = JSON.parse(JSON.stringify(quest))
-    let [rightAnswersCounter , setRightAnswersCounter] = useState(0)
-
-    let question: IQuestion = currentQuestionNumber < questions.length ? questions[currentQuestionNumber] : {}
-
-    let [answ, setAnsw] = useState("")
-
-    let showResult = (event: React.MouseEvent<HTMLInputElement>) => {
-
-        setIsAnswered(prev => !prev)
-        let target = event.target as HTMLButtonElement
-
-        if (target.value == question.right_answer) {
-            setAnsw(prev => "You are right !")
-            setRightAnswersCounter(prev => prev + 1)
-        } else {
-            setAnsw("You are wrong ...")
-        }
-    }
-
-    useEffect(() => {
-        let elements = document.getElementsByClassName('answers_item')
-        for (let i = 0; i < elements.length; i++) {
-            let elem = elements[i] as HTMLInputElement
-
-            if (!isAnswered) {
-                elem.classList.remove('wrong')
-                elem.classList.remove('right')
-            } else if (elem.value != question.right_answer) {
-                elem.classList.add("wrong")
-            } else elem.classList.add("right")
-
-            elem.classList.toggle("not-answered")
-        }
-    }, [isAnswered])
-
-    let next_question = (event: React.MouseEvent<HTMLButtonElement>) => {
-        setQurrentQuestionNumber(prevState => prevState + 1)
-        setAnsw("")
-        setIsAnswered(prevState => !prevState)
-    }
+    let params  = useParams()
+    let elements = document.getElementsByClassName('answers_item')
+    let {currentQuestionNumber,
+        question,
+        answ,
+        isAnswered,
+        next_question,
+        showResult,
+        rightAnswersCounter} = useQuiz({questions , elements})
 
     // @ts-ignore
     return (
+        <div className='quiz_block'>
+        <HomeButton/>
         <div id="question_block" className='shadow'>
             {
                 questions.length != currentQuestionNumber ?
@@ -75,6 +48,7 @@ export function QuizBlock() {
             }
 
 
+        </div>
         </div>
     )
 }
@@ -118,7 +92,15 @@ function Question(
                         {question.answers.map((elem: string) => <Answer text={elem} right_answer={question.right_answer}
                             onClick={showResult} isAnswered={isAnswered} />)}
                     </div>
-                </>
+            </>    
+    )
+}
+
+function HomeButton(){
+    return(
+        <Link to='/' className="home_link">
+            <img src={`./img/home_logo.svg`}/>
+        </Link>
     )
 }
 
@@ -161,4 +143,6 @@ function NextButton(props: NextButtonProps) {
         <button className='next shadow' onClick={props.onClick}>Next question</button>
     )
 }
+
+
 
