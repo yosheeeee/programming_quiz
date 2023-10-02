@@ -99,7 +99,7 @@ function Question(
 function HomeButton(){
     return(
         <Link to='/' className="home_link">
-            <img src={`./img/home_logo.svg`}/>
+            <img src={`../img/home_logo.svg`}/>
         </Link>
     )
 }

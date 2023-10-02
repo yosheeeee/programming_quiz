@@ -55,5 +55,65 @@
             ],
             "right_answer": "List"
         }
+    ],
+    "js" : [
+        {
+            "question": "Тестовый вопрос по js?",
+            "answers": [
+                "number",
+                "int",
+                "float",
+                "string"
+            ],
+            "right_answer": "int"
+        }
+    ],
+    "py" : [
+        {
+            "question": "Тестовый вопрос по py?",
+            "answers": [
+                "number",
+                "int",
+                "float",
+                "string"
+            ],
+            "right_answer": "int"
+        }
+    ],
+    "java" : [
+        {
+            "question": "Тестовый вопрос по java?",
+            "answers": [
+                "number",
+                "int",
+                "float",
+                "string"
+            ],
+            "right_answer": "int"
+        }
+    ],
+    "go" : [
+        {
+            "question": "Тестовый вопрос по go?",
+            "answers": [
+                "number",
+                "int",
+                "float",
+                "string"
+            ],
+            "right_answer": "int"
+        }
+    ],
+    "cpp" : [
+        {
+            "question": "Тестовый вопрос по cpp?",
+            "answers": [
+                "number",
+                "int",
+                "float",
+                "string"
+            ],
+            "right_answer": "int"
+        }
     ]
 }

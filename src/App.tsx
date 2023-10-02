@@ -11,16 +11,20 @@ import quest from './questions.json'
 
 let questions   = JSON.parse(JSON.stringify(quest))
 
-const router = createBrowserRouter([
+let routes = [
   {
     path: "/",
     element: <QuizMenu/>,
-  },
-  {
-    path : "/quiz",
-    element : <QuizBlock questions={questions.cs}/>
   }
-]);
+]
+
+for (let key in questions){
+  routes.push({
+    path: `/quiz/${key}`,
+    element : <QuizBlock questions={questions[key]}/>
+  })
+}
+const router = createBrowserRouter(routes);
 
 function App() {
 
